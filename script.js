@@ -65,7 +65,7 @@
   }else {
   alert("You selected a password length of " + passLength + " characters.");
   }
-  console.log(passLength);
+  console.log("Password " + passLength);
 
   // var passLower = window.confirm("Would you like to include lowercase characters?");
   // // if statement confirming lowercase character selection
@@ -103,14 +103,19 @@
   // }
   // console.log("Special " + passSpecial);
 
-  let pass = "";  
+  var lowPass = "";  
   for (var i = 0; i < passLength; i++) {
     ranLow = parseInt(Math.random() * 26);
-    pass = (pass + char.lower[ranLow]);
+    lowPass = (lowPass + char.lower[ranLow]);
   }
-  console.log(pass);
+  console.log(lowPass);
+  // return lowPass;
   // }
 
+
+
+
+// -------------------No Touchy below this line!-------------------------------
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
@@ -118,10 +123,7 @@ var generateBtn = document.querySelector("#generate");
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
-
-}
+  passwordText.value = password;}
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
