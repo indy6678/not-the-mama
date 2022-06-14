@@ -23,9 +23,9 @@ var generatePassword = function () {
 
   // prompt for password length
   var passLength = window.prompt("Please select a password length (between 8 and 128).");
-  if (!passLength || passLength > 128 || passLength < 8) {
-    alert("You made an invalid entry. Try again.");
-    generatePassword();
+  if (!passLength || passLength > 128 || passLength < 8 || isNaN(passLength)) {
+    alert("You made an invalid entry. Please click 'Generate Password' again.");
+    return;    
   } else {
     alert("You selected a password length of " + passLength + " characters.");
   }
@@ -247,7 +247,7 @@ var generatePassword = function () {
       return allPass;
     // default action if no characters are selected 
     default:
-      window.alert("No selection was made. All characters types will be used.")
+      window.alert("Minimum 1 character type required. All characters types will automatically be used. Or click 'Generate Password' to try again.")
       var allPass = "";
       for (var i = 0; i < passLength; i++) {
         ranAll = parseInt(Math.random() * 90);
